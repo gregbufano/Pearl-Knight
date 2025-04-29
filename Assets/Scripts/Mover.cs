@@ -18,11 +18,11 @@ public class Mover : MonoBehaviour
     }
     public void MoveRight(float speed)
     {
-        rb.AddForce(tf.right * speed);
+        rb.AddForce(tf.right * speed * Time.deltaTime);
     }
     public void MoveLeft(float speed)
     {
-        rb.AddForce(tf.right * -speed);
+        rb.AddForce(tf.right * -speed * Time.deltaTime);
     }
     public void Jump(float jumpForce)
     {
