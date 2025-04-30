@@ -8,11 +8,14 @@ public class Controller : MonoBehaviour
 
     public float speed;
 
+    public float verticleSpeed;
+
     public float jumpForce;
 
     public KeyCode moveLeft;
     public KeyCode moveRight;
-    public KeyCode jump;
+    public KeyCode moveUp;
+    public KeyCode moveDown;
     public KeyCode hit;
 
     public bool grounded;
@@ -34,9 +37,13 @@ public class Controller : MonoBehaviour
         {
             mover.MoveRight(speed);
         }
-        if (Input.GetKeyDown(jump))
+        if (Input.GetKeyDown(moveUp))
+            {
+            mover.MoveUp(verticleSpeed);
+        }
+        if (Input.GetKeyDown(moveDown))
         {
-            mover.Jump(jumpForce);
+            mover.MoveDown(verticleSpeed);
         }
         if (Input.GetKeyDown(hit))
         {

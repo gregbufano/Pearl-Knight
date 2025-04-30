@@ -2,22 +2,26 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Mover : MonoBehaviour
+public class Mover : Controller
 {
     private Transform tf;
     private Rigidbody2D rb;
-    public bool grounded;
+    private Vector2 input;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         tf = GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+       
     }
     public void MoveRight(float speed)
     {
@@ -27,27 +31,23 @@ public class Mover : MonoBehaviour
     {
         rb.AddForce(tf.right * -speed);
     }
-    public void Jump(float jumpForce)
+    public void MoveUp(float verticleSpeed)
     {
-        if (grounded == true)
-        {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }
-        else
-        {
-            Debug.Log("Player is not grounded");
-        }
+        rb.AddForce(tf.up * verticleSpeed);
     }
+    public void MoveDown(float verticleSpeed)
+    {
+        rb.AddForce(tf.up * -verticleSpeed);
+       
+    }
+    
     public void Hit()
     {
 
     }
-    // checking for grounded
-    public void Checkgrounding()
-    {
-        
+    
 
-    }
+    
 
 }
 
