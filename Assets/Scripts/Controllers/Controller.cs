@@ -37,13 +37,13 @@ public class Controller : MonoBehaviour
         {
             mover.MoveRight(speed);
         }
-        if (Input.GetKeyDown(moveUp))
+        if (Input.GetKey(moveUp))
             {
-            mover.MoveUp(verticleSpeed);
+            mover.MoveUp(speed);
         }
-        if (Input.GetKeyDown(moveDown))
+        if (Input.GetKey(moveDown))
         {
-            mover.MoveDown(verticleSpeed);
+            mover.MoveDown(speed);
         }
         if (Input.GetKeyDown(hit))
         {
