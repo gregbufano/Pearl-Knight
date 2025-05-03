@@ -11,7 +11,7 @@ public class Controller : MonoBehaviour
     public float verticleSpeed;
 
     public float jumpForce;
-
+    // allows the designers to designate the keys in the inspector
     public KeyCode moveLeft;
     public KeyCode moveRight;
     public KeyCode moveUp;
@@ -29,8 +29,10 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // checks if the player has pressed the designated keys
         if (Input.GetKey(moveLeft))
         {
+            // uses the mover class to define the movement of the player
             mover.MoveLeft(speed);
         }
         if (Input.GetKey(moveRight))

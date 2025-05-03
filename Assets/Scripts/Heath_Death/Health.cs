@@ -1,42 +1,55 @@
 using UnityEngine;
 
-public class Health : MonoBehaviour
-{
+// Ensure the UpdateHealthbar class is defined or imported
+// If this class exists in your project but is in a different namespace, add the appropriate using directive.
+// Example: using YourNamespace;
 
+
+
+public abstract class Health : MonoBehaviour
+{
     public float currentHealth;
     public float maxHealth;
 
-    public Death deathComponent;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public UpdateHealthbar healthBarFiller;
+
+    protected virtual void Start()
     {
-        deathComponent = GetComponent<Death>();
+        currentHealth = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void Heal(float amount)
     {
-        
+        // does the math to check if the player healed and limits the health to the max health
+        currentHealth += amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        // changes the fill amount of the health bar
+        if (healthBarFiller != null)
+        {
+            healthBarFiller.ChangeFillAmount();
+        }
     }
-    public void Heal(float amount)
-    {
-        currentHealth = currentHealth + amount;
 
+    public virtual void TakeDamage(float amount)
+    {
+        // calculates the damage the player took and limits the health to 0
+        currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
-       // Later intergrate Health Bard
-    }
-
-    public void TakeDamage(float amount)
-    {
-        currentHealth = currentHealth - amount;
-
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        if (healthBarFiller != null)
+        {
+            healthBarFiller.ChangeFillAmount();
+        }
 
         if (currentHealth <= 0)
         {
-            Debug.Log("Triggereing Death");
-            deathComponent.Die();
+            Die(); // Call the abstract death logic
         }
     }
+
+    // Must be implemented by child class
+    protected abstract void Die();
+
+    protected abstract void OnTakeDamage(float amount);
 }
+

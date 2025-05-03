@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - ground
+  - Chest
   layers:
   - Default
   - TransparentFX
@@ -53,6 +54,9 @@ TagManager:
     locked: 0
   - name: Collision
     uniqueID: 3953840041
+    locked: 0
+  - name: Damaging Area
+    uniqueID: 3687184991
     locked: 0
   - name: Player
     uniqueID: 3637804297

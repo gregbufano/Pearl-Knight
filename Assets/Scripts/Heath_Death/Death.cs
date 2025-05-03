@@ -13,6 +13,7 @@ public class Death : MonoBehaviour
     {
         
     }
+    // This function is called when the player dies
     public void Die()
     {
         Destroy(gameObject);
