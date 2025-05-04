@@ -6,7 +6,7 @@ public class Controller : MonoBehaviour
 {
     public Mover mover;
 
-    public float speed;
+    [SerializeField] float speed;
 
     public float verticleSpeed;
 

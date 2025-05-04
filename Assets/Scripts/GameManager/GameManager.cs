@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public GameObject gameplay;
     public GameObject startMenu;
     public GameObject settingPage;
+    public GameObject winScreen;
+    public GameObject loseScreen;
     public string objectTag;
     public int chestCount;
     public int lives;
@@ -76,10 +78,12 @@ public class GameManager : MonoBehaviour
     void TriggerLoss()
     {
         Debug.Log("You Lose");
+        ActivateLoseScreen();
     }
     void TriggerWin()
     {
         Debug.Log("You Win");
+        ActivateWinScreen();
     }
     
 
@@ -119,16 +123,28 @@ public class GameManager : MonoBehaviour
         // activates the gameplay only
         DeactivateAllStates();
         gameplay.SetActive(true);
-        chestCount = 0;
+        
 
         // Count all chests in the scene
         foreach (GameObject chest in GameObject.FindGameObjectsWithTag("Chest"))
         {
+            Debug.Log("Found chest: " + chest.name);
             chestCount++;
         }
 
-        Debug.Log("Chest Count: " + chestCount);
-
+    }
+    public void ActivateWinScreen()
+    {
+        {
+            DeactivateAllStates();
+            winScreen.SetActive(true);
+        }
+    }
+    public void ActivateLoseScreen()
+    {
+        // activates the lose screen only
+        DeactivateAllStates();
+        loseScreen.SetActive(true);
     }
 
     public void ActivateStartMenu()

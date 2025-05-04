@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3461115015905324406}
   - component: {fileID: 1492982142790204241}
   - component: {fileID: 4014480010026939089}
+  - component: {fileID: -4390556502660517926}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -326,3 +327,11 @@ MonoBehaviour:
   maxHealth: 100
   healthBarFiller: {fileID: 0}
   audioSource: {fileID: 1492982142790204241}
+--- !u!81 &-4390556502660517926
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8682351172217627316}
+  m_Enabled: 1

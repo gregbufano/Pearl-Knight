@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1983365931729410437}
   - component: {fileID: -3787669322645384030}
   - component: {fileID: 3464588580448721460}
+  - component: {fileID: -2727057829684410609}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Chest
@@ -148,3 +149,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+--- !u!114 &-2727057829684410609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8468382990835265683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a8544782ed4a5c49996ca6217017a10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chestPrefab: {fileID: 8468382990835265683}
+  spawnPoints:
+  - {fileID: 0}

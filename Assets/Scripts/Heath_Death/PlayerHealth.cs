@@ -12,6 +12,7 @@ public class PlayerHealth : Health
     {
         base.Start();
         deathComponent = GetComponent<Death>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,6 +27,7 @@ public class PlayerHealth : Health
         Debug.Log("Player has died.");
         if (deathComponent != null)
         {
+            GameManager.instance.DecreaseLives();
             deathComponent.Die();
         }
 
@@ -33,13 +35,10 @@ public class PlayerHealth : Health
     protected override void OnTakeDamage(float amount)
     {
         Debug.Log("Player took damage: " + amount);
-        if (audioSource != null && audioSource.clip != null)
-        {
+        
+        
             audioSource.PlayOneShot(audioSource.clip);
-        }
-        else
-        {
-            Debug.LogWarning("AudioSource or clip is not assigned.");
-        }
+        
+        
     }
 }
